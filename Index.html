@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImDoingMyWork</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066ff;
+            --primary-light: #338cff;
+            --bg: #f9fafb;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --text-light: #777777;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); }
+        a { text-decoration: none; color: inherit; }
+
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            padding: 1rem 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Search */
+        .search-wrapper { position: relative; width: 100%; max-width: 300px; }
+        .search-wrapper input {
+            width: 100%;
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 999px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0,102,255,0.2);
+        }
+        .search-wrapper .icon {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            width: 1.2rem;
+            height: 1.2rem;
+            fill: var(--text-light);
+        }
+
+        /* Main */
+        main {
+            padding: 2.5rem 0;
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .game-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        .game-info {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .game-info h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+        .game-info button {
+            align-self: flex-start;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            border: none;
+            border-radius: 0.5rem;
+            color: #fff;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .game-info button:hover {
+            background: var(--primary-light);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner container">
+            <div class="header-left">
+                <div class="logo">ImDoingMyWork</div>
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search games...">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 14a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/>
+                    </svg>
+                </div>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#games">Games</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="games-grid" id="gamesGrid">
+            <!-- ame Cards -->
+            <div class="game-card" data-name="Stickman Hook">
+        <img src="images/thumbnails/stickmanhook.png" alt="Stickman Hook">
+        <div class="game-info">
+          <h3>Stickman Hook</h3>
+          <button onclick="location.href='StickmanHook.html'">Play Now</button>
+        </div>
+      </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 ImDoingMyWork. All rights reserved.
+    </footer>
+
+    <script>
+        // Live search filter
+        const searchInput = document.getElementById('searchInput');
+        const gameCards = document.querySelectorAll('.game-card');
+        searchInput.addEventListener('input', e => {
+            const filter = e.target.value.trim().toLowerCase();
+            gameCards.forEach(card => {
+                card.style.display = card.dataset.name.toLowerCase().includes(filter) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
